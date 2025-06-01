@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #121D28;
 }
 
 @theme inline {
@@ -14,9 +14,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #121D28;
     --foreground: #ededed;
   }
+}
+
+.underline-hover {
+  @apply relative inline-block opacity-60 cursor-pointer;
+}
+
+.underline-hover:hover {
+  @apply relative inline-block opacity-100;
+}
+
+.underline-hover::after {
+  content: "";
+  @apply absolute left-0 -bottom-0.5 h-[3px] w-0 bg-current transition-all duration-300 text-orange-400;
+}
+
+.underline-hover:hover::after {
+  @apply w-full;
 }
 
 body {
